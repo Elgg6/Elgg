@@ -1,8 +1,8 @@
 # Stage 1: Base image with Apache and PHP 8.1
 FROM php:8.1-apache
 
-LABEL maintainer="your-email@example.com"
-ENV DEBIAN_FRONTEND=noninteractive
+#LABEL maintainer="your-email@example.com"
+#ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -25,13 +25,13 @@ RUN a2enmod rewrite headers
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Set working directory and copy application
-WORKDIR /root/elgg-data
-COPY . /root/elgg-data
+WORKDIR /var/elgg-app
+COPY . /var/elgg-app
 
 # Fix file permissions for Elgg and data directory
-RUN mkdir -p /root/elgg_data && \
-    chown -R root:root /root/elgg_data /root/elgg-app && \
-    chmod -R 775 /root/elgg_data
+RUN mkdir -p /var/elgg_data && \
+    chown -R root:root /var/elgg_data /var/elgg-app && \
+    chmod -R 775 /var/elgg_data
 
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php && \
@@ -46,9 +46,9 @@ RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/elgg-errors.ini 
     echo "log_errors = On" >> /usr/local/etc/php/conf.d/elgg-errors.ini
 
 # Create log directory
-RUN mkdir -p /root/log/apache2 && \
-    chown root:root /root/log/apache2 && \
-    chmod 755 /root/log/apache2
+RUN mkdir -p /var/log/apache2 && \
+    chown root:root /var/log/apache2 && \
+    chmod 755 /var/log/apache2
 
 # Expose HTTP port
 EXPOSE 80
