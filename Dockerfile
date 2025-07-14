@@ -41,8 +41,8 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2 && \
     chown -R www-data:www-data /var/lock/apache2 /var/run/apache2
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s \
-    CMD curl -f http://localhost/ || exit 1
+#HEALTHCHECK --interval=30s --timeout=3s \
+    #CMD curl -f http://localhost/ || exit 1
 
 EXPOSE 80
 USER www-data
