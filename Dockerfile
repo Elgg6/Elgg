@@ -22,13 +22,12 @@ RUN a2enmod rewrite headers && \
 
 # Application setup
 WORKDIR /var/www/elgg
-COPY . .
+COPY . /var/www/elgg
 
 # Create data directory with correct permissions
 RUN mkdir -p /var/elgg_data && \
     chown -R www-data:www-data /var/www/elgg /var/elgg_data && \
-    chmod -R 775 /var/elgg_data && \
-    ln -s /var/elgg_data /var/www/elgg/data
+    chmod -R 775 /var/elgg_data &&
 
 # Install Composer and dependencies
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
