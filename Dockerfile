@@ -25,12 +25,12 @@ RUN a2enmod rewrite headers
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Set working directory and copy application
-WORKDIR /var/elgg-app
-COPY . /var/elgg-app
+WORKDIR /var/Elgg
+COPY . /var/Elgg
 
 # Fix file permissions for Elgg and data directory
 RUN mkdir -p /var/elgg_data && \
-    chown -R root:root /var/elgg_data /var/elgg-app && \
+    chown -R root:root /var/elgg_data /var/Elgg && \
     chmod -R 775 /var/elgg_data
 
 # Install Composer globally

@@ -22,9 +22,9 @@ return [
 
 	// admin account
 	'displayname' => getenv('ELGG_ADMIN_USER') ? : 'Administrator',
-	'email' => getenv('ELGG_ADMIN_EMAIL') ? : 'admin@ci.elgg.org',
-	'username' => getenv('ELGG_ADMIN_USER') ? : 'admin',
-	'password' => getenv('ELGG_ADMIN_PASS') ? : 'fancypassword',
+	'email' => getenv('ELGG_ADMIN_EMAIL') ? : 'oussamabitaa10@gmail.com',
+	'username' => getenv('ELGG_ADMIN_USER') ? : 'oussama',
+	'password' => getenv('ELGG_ADMIN_PASS') ? : 'oussama1234',
 
 	// timezone
 	'timezone' => 'UTC'
