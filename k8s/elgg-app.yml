@@ -180,7 +180,7 @@ spec:
 
       containers:
       - name: elgg-app
-        image: bitaouioussama/elgg-app:v6
+        image: bitaouioussama/elgg-app:v7
         imagePullPolicy: Always
         securityContext:
           runAsUser: 33
