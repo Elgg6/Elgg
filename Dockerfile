@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     git unzip curl libzip-dev libonig-dev libxml2-dev \
     libldap2-dev libpng-dev libjpeg-dev libfreetype6-dev \
     libicu-dev libcurl4-openssl-dev libssl-dev libxslt-dev \
+    libcap2-bin \
     && rm -rf /var/lib/apt/lists/*
 
 # Configure PHP extensions
@@ -39,7 +40,6 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 # Allow Apache to bind to port 80 as non-root
 RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2 && \
     chown -R www-data:www-data /var/lock/apache2 /var/run/apache2
-
 # Health check
 #HEALTHCHECK --interval=30s --timeout=3s \
     #CMD curl -f http://localhost/ || exit 1
