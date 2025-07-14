@@ -19,7 +19,7 @@ spec:
       initContainers:
       - name: fix-permissions
         image: busybox
-        command: ["/bin/sh", "-c", "mkdir -p /var/www/elgg/data && chown -R 33:33 /var/elgg_data && chmod -R 775 /var/elgg_data && ln -sfn /var/elgg_data /var/www/elgg/data"]
+        command: [""/bin/sh", "-c", "mkdir -p /var/www/elgg/data && chown -R 33:33 /var/www/elgg /var/elgg_data && chmod -R 755 /var/www/elgg && chmod -R 775 /var/elgg_data && ln -sfn /var/elgg_data /var/www/elgg/data && ls -la /var/www/elgg"]
         #fichiers de configuration
         # command: ["/bin/sh", "-c", "chown -R 33:33 /var/www/html/elgg/elgg-config && chmod -R 775 /var/www/html/elgg/elgg-config"]
         volumeMounts:
