@@ -15,16 +15,16 @@ return [
 	'dbhost' => getenv('ELGG_DB_HOST') ? : 'localhost',
 
 	// site settings
-	'sitename' => 'Elgg CI Site',
-	'siteemail' => 'no_reply@ci.elgg.org',
+	'sitename' => getenv('ELGG_SITE_NAME') ? : 'MarjaneNews',
+	'siteemail' => getenv('ELGG_SITE_EMAIL') ? : 'oussamabitaa10@gmail.com',
 	'wwwroot' => getenv('ELGG_WWWROOT') ? : 'http://localhost/',
 	'dataroot' => getenv('HOME') . '/engine/tests/test_files/dataroot/',
 
 	// admin account
-	'displayname' => 'Administrator',
-	'email' => 'admin@ci.elgg.org',
-	'username' => 'admin',
-	'password' => 'fancypassword',
+	'displayname' => getenv('ELGG_ADMIN_USER') ? : 'Administrator',
+	'email' => getenv('ELGG_ADMIN_EMAIL') ? : 'admin@ci.elgg.org',
+	'username' => getenv('ELGG_ADMIN_USER') ? : 'admin',
+	'password' => getenv('ELGG_ADMIN_PASS') ? : 'fancypassword',
 
 	// timezone
 	'timezone' => 'UTC'

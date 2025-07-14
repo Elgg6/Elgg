@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: elgg-env
+type: Opaque
+stringData:
+  MYSQL_ROOT_PASSWORD: root1234
+  MYSQL_DATABASE: elgg_db
+  MYSQL_USER: oussama
+  MYSQL_PASSWORD: oussama1234
+  ELGG_DB_HOST: elgg-db
+  ELGG_DB_NAME: elgg_db
+  ELGG_DB_USER: oussama
+  ELGG_DB_PASS: oussama1234
+  PMA_HOST: elgg-db
+  PMA_USER: oussama
+  PMA_PASSWORD: oussama1234
+  ELGG_WWWROOT: http://34.175.206.89/
+  ELGG_SITE_NAME: MarjaneNews
+  ELGG_SITE_EMAIL: oussamabitaa10@gmail.com
+  ELGG_ADMIN_USER: oussama
+  ELGG_ADMIN_PASS: oussama1234
+  ELGG_ADMIN_EMAIL: oussamabitaa10@gmail.com
